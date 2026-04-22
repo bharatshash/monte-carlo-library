@@ -10,14 +10,11 @@
 #include "simulations/pi_estimator.hpp"
 #include <fstream>
 
-// constexpr double PI = 3.14159265358979323846;
-
-int main(){
+int  main(){
     MersenneTwister rng;
     PiEstimator<MersenneTwister> estimator(rng);
 
-    std::ofstream output_file("results/pi_estimations.csv", std::ios::out|std::ios::app);
-
+    std::ofstream output_file("results/pi_estimations_antithetic.csv", std::ios::out|std::ios::app);
 
     output_file << "Sample Size,Estimated PI,Absolute Error\n";
     std::vector<int> sample_sizes = {100, 316, 1000, 3162, 10000, 31623, 100000, 316228, 1000000};
